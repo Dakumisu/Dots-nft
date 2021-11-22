@@ -15,11 +15,11 @@ module.exports = {
     devtool: 'source-map',
     plugins:
     [
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: path.resolve(__dirname, '../static'), to: path.resolve(__dirname,'../build/assets') }
-            ]
-        }),
+        // new CopyWebpackPlugin({
+        //     patterns: [
+        //         { from: path.resolve(__dirname, '../static'), to: path.resolve(__dirname,'../build/assets') }
+        //     ]
+        // }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, '../src/index.html'),
@@ -69,76 +69,6 @@ module.exports = {
                     'sass-loader'
                 ]
             },
-
-            // Images
-            {
-                test: /\.(jpg|png|gif|svg)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/images/'
-                        }
-                    }
-                ]
-            },
-
-            // Fonts
-            {
-                test: /\.(otf|ttf|eot|woff|woff2)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/fonts/'
-                        }
-                    }
-                ]
-            },
-
-            // Sound/Music
-            {
-                test: /\.(mp3)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/sound/'
-                        }
-                    }
-                ]
-            },
-
-            // Models
-            {
-                test: /\.(glb|gltf|fbx|obj)$/,
-                use:
-                [
-                    {
-                        loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/models/'
-                        }
-                    }
-                ]
-            },
-
-            // Shaders
-            {
-                test: /\.(glsl|vs|fs|vert|frag)$/,
-                exclude: /node_modules/,
-                use: [
-                    'raw-loader',
-                    'glslify-loader'
-                ]
-            }
         ]
     }
 }

@@ -10,8 +10,8 @@ const perlinNoise = new SimpleNoise1D()
 const simplexNoise = new SimplexNoise()
 const twoPi = Math.PI * 2
 
-const patternSize = 64
-const patternAlpha = 25
+const patternSize = 64 * devicePixelRatio
+const patternAlpha = 25 * devicePixelRatio
 class Dots {
    constructor(opt) {
       this.ctx = Sketch.ctx
@@ -89,7 +89,7 @@ class Dots {
    dot(x, y, size) {
       this.ctx.save()
 
-      this.ctx.translate(this.canvas.width / 2 - (55 + this.offset * (this.count / 2)), this.canvas.height - 100)
+      this.ctx.translate(this.canvas.width / 2 - (55 + this.offset * (this.count / 2)), this.canvas.height - 150)
 
       this.ctx.beginPath()
       this.ctx.fillStyle = "#2c2c2c"
